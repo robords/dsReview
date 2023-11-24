@@ -8,11 +8,11 @@ repository/
 ├── frontend/
 │   ├── public/
 │   ├── src/
-│   ├ package.json
+│   ├── package.json
 ├── infrastructure/
 │   ├── __main__.py (Pulumi program)
-│   ├─Pulumi.yaml  
-│   ├ requirements.txt   
+│   ├── Pulumi.yaml  
+│   ├── requirements.txt   
 ├── .gitignore
 ├── README.md
 ```
