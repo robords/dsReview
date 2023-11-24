@@ -1,0 +1,6 @@
+name: dsReviewInfrastructure
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: Infrastructure for review of learnings from DS program and beyond
