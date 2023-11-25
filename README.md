@@ -10,49 +10,32 @@ repository/
 │   ├── src/
 │   ├── package.json
 ├── infrastructure/
-│   ├── __main__.py (Pulumi program)
-│   ├── Pulumi.yaml  
-│   ├── requirements.txt   
+│   ├── cloudflare.tf
+│   ├── terraform.tfstate
 ├── .gitignore
+├── LICENSE
 ├── README.md
 ```
 
-# Setup
-In the `infrastructure` folder:
-1. Add the following to requirements.txt:
+# Setup (Terraform)
+After installing terraform (i.e. on mac with `brew install terraform`), in the `infrastructure` folder:
 
+1. Add the `cloudflare.tf` file: It should have your required providers, your variables, and resources.
+2. Initialize the directory with Terraform:
+```commandline
+terraform init
 ```
-pulumi==3.94.2
-semver==2.13.0
-pulumi-cloudflare>=5.0,<6.0 
+3. Apply your changes:
+```commandline
+terraform apply
 ```
-2. Set up your venv:
+4. If you make any changes to your infrastructure, be sure to update:
+```commandline
+terraform refresh
 ```
-python3 -m venv ~/.venv/dsReviewInfrastructure
-```
-3. (optional) Add a shortcut to your venv:
-In ~./zshrc:
-```
-alias dsr="cd ~/Documents/projects/dsReview/infrastructure && source ~/.venv/dsReviewInfrastructure/bin/activate"
-```
-Then run:
-```
-source  ~./zshrc
-dsr
-```
-(`dsr` activates venv, otherwise run `source ~/.venv/dsReviewInfrastructure/bin/activate`)
-4. Install requirements in venv:
-```
-pip3 install -r requirements.txt
-```
-4. Freeze requirements
-```
-pip freeze > requirements.txt
-```
-5. Test CloudFlare and pulumi packages work:
-Add the following to `__main__.py`
-```python
-import pulumi
-import pulumi_cloudflare as cloudflare
-```
-Then execute `__main__.py` by running `python3 __main__.py`
+
+Helpful Resources:
+* Managing Secrets: https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1
+* CloudFlare/Terraform: https://developers.cloudflare.com/terraform/tutorial/initialize-terraform/
+* CloudFlare Pages/Terraform: https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/pages_project
+* CloudFlare Pages Example with Terraform: https://blog.puvvadi.me/posts/cloudflare-pages-terraform/
