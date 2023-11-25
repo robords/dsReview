@@ -39,3 +39,6 @@ Helpful Resources:
 * CloudFlare/Terraform: https://developers.cloudflare.com/terraform/tutorial/initialize-terraform/
 * CloudFlare Pages/Terraform: https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/pages_project
 * CloudFlare Pages Example with Terraform: https://blog.puvvadi.me/posts/cloudflare-pages-terraform/
+
+# Setup (next.js)
+1. 
