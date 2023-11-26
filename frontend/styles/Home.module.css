@@ -90,3 +90,14 @@
     flex-direction: column;
   }
 }
+
+.background_image_style {
+  /* The image used */
+  background-image: url(../public/Homepage.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* Full height and width */
+  width: 100vw;
+  height: 100vh;
+}
