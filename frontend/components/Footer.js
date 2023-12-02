@@ -1,5 +1,6 @@
-export default function Footer() {
 
+export default function Footer() {
+    const env = process.env.NODE_ENV
     return (
         <footer>
             <p> Powered by{' '}
@@ -26,6 +27,8 @@ export default function Footer() {
                 >
                     Terraform.
                 </a>
+                <br />
+                Environment: {env}
             </p>
         </footer>
     )
