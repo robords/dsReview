@@ -7,9 +7,19 @@
   align-items: center;
 }
 
-.background_image_style {
+.home_background_image_style {
   /* The image used */
   background-image: url(../public/Homepage.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* Full height and width */
+  width: 100vw;
+  height: 100vh;
+}
+
+.math_background_image_style {
+  /* The image used */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

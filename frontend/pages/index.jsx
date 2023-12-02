@@ -6,7 +6,7 @@ export default function Home() {
     return (
         <div className={styles.container}>
             <main>
-                <div className={styles.background_image_style}>
+                <div className={styles.home_background_image_style}>
                     <SVGImage src="/Homepage.svg" />
                     <Footer/>
                 </div>
