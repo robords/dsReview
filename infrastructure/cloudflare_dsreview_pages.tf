@@ -7,16 +7,6 @@ terraform {
   }
 }
 
-variable "cloudflare_api_token" {
-  type = string
-  sensitive = true
-}
-
-variable "cloudflare_account_id" {
-  type = string
-  sensitive = true
-}
-
 provider "cloudflare" {
   api_token = var.cloudflare_api_token
 }
@@ -62,4 +52,18 @@ resource "cloudflare_pages_project" "deployment_configs" {
       compatibility_flags = ["nodejs_compat"]
     }
   }
+}
+
+resource "cloudflare_record" "dsreviewcname" {
+  zone_id = var.zone_id
+  name    = "@"
+  value   = "dsreview.pages.dev"
+  type    = "CNAME"
+  ttl     = 3600
+}
+
+resource "cloudflare_pages_domain" "dsreviewdomain" {
+  account_id   = var.cloudflare_account_id
+  project_name = "dsreview"
+  domain       = var.zone
 }
