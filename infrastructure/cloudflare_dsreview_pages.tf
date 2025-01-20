@@ -67,3 +67,13 @@ resource "cloudflare_pages_domain" "dsreviewdomain" {
   project_name = "dsreview"
   domain       = var.zone
 }
+
+resource "cloudflare_worker_script" "hello_world" {
+  name = "hello-world-worker"
+  content = file("workers/hello-world.js")
+}
+
+resource "cloudflare_worker_route" "hello_world_route" {
+  pattern = "hello.datainthewild.com/*"  # or "datainthewild.com/hello/*"
+  script_name = cloudflare_worker_script.hello_world.name
+}
