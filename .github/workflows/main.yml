@@ -12,7 +12,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ./terraform  # Adjust this to your Terraform files location
+        working-directory: ./infrastructure
 
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
