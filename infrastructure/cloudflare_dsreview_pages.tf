@@ -75,8 +75,9 @@ resource "cloudflare_worker_script" "hello_world" {
   module = true
 }
 
-resource "cloudflare_worker_route" "hello_world_route" {
-  zone_id = var.zone_id
-  pattern = "hello.datainthewild.com/*"  # or "datainthewild.com/hello/*"
-  script_name = cloudflare_worker_script.hello_world.name
+resource "cloudflare_worker_domain" "hello_world" {
+  account_id = var.cloudflare_account_id
+  hostname   = "hello.datainthewild.com"
+  service    = cloudflare_worker_script.hello_world.name
+  zone_id    = var.zone_id
 }
