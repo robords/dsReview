@@ -69,11 +69,14 @@ resource "cloudflare_pages_domain" "dsreviewdomain" {
 }
 
 resource "cloudflare_worker_script" "hello_world" {
+  account_id   = var.cloudflare_account_id
   name = "hello-world-worker"
-  content = file("workers/hello-world.js")
+  content = file("../workers/hello-world.js")
+  module = true
 }
 
 resource "cloudflare_worker_route" "hello_world_route" {
+  zone_id = var.zone_id
   pattern = "hello.datainthewild.com/*"  # or "datainthewild.com/hello/*"
   script_name = cloudflare_worker_script.hello_world.name
 }
